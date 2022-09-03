@@ -34,12 +34,12 @@ import {isWebUri} from 'valid-url'
   
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req, res ) => {
+  app.get( "/", async ( req:express.Request, res:express.Response ) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
   
-  app.get("/filteredimage", async ( req, res ) => {
-    let image_url  = req.query.image_url;
+  app.get("/filteredimage", async ( req:express.Request, res:express.Response ) => {
+    let image_url:string  = req.query.image_url;
 
     /* validate the image_url query */
     if(!image_url || !isWebUri(image_url)) {
